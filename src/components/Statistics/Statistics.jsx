@@ -1,12 +1,15 @@
-import {StatisticList, StatisticItems, StatisticsText} from './Statistics.styled'
+import css from './Statistics.module.css';
 
-export const Statistic =({data, total, positivePercentage}) =>{
-    const {good, neutral, bad} = data
-    return <StatisticList>
-                <StatisticItems><StatisticsText>Good:</StatisticsText> {good}</StatisticItems>
-                <StatisticItems><StatisticsText>Neutral:</StatisticsText> {neutral}</StatisticItems>
-                <StatisticItems><StatisticsText>Bad</StatisticsText>: {bad}</StatisticItems>
-                <StatisticItems><StatisticsText>Total:</StatisticsText> {total}</StatisticItems>
-                <StatisticItems><StatisticsText>Positive feedback:</StatisticsText> {positivePercentage}%</StatisticItems>
-            </StatisticList>
+export const Statistics = ({good, neutral, bad, total , positivePercentage}) => {
+    return (
+        <>
+ <ul className={css.list}>
+        <li>{`Good: ${good}`}</li>
+        <li>{`Neutral: ${neutral}`}</li>
+        <li>{`Bad: ${bad}`}</li>
+        <li>{`Total: ${total}`}</li>
+        <li>{`Positive feedback: ${ positivePercentage > 0 ? positivePercentage : 0 }%`}</li>
+ </ul>
+        </>
+    )
 }
